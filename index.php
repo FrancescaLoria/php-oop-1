@@ -21,12 +21,16 @@ class Movie {
 }
 
 $newMovie = new Movie("La città incantata","Hayao Miyazaki", 2001);
+$newMovie2 = new Movie("Il castello errante di Howl","Hayao Miyazaki", 2004);
 
 //echo "Titolo del film: " . $newMovie->title;
 
 $filmDetails = $newMovie->generateMovieDetails();
+$filmDetails2 = $newMovie2->generateMovieDetails();
 
 echo $filmDetails;
+echo "<br>";
+echo $filmDetails2;
 
 
 ?>
