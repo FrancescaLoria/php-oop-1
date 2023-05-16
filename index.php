@@ -5,23 +5,30 @@ class Movie {
     public $title;
     public $year;
     public $director;
+    public $genders;
 
-    function __construct($_title,$_director,$_year) {
+    function __construct($_title,$_director,$_year,$_genders) {
         $this->title = $_title;
         $this->director = $_director;
         $this->year = $_year;
+        $this->genders = $_genders;
     }
 
     public function generateMovieDetails() {
-        return "Il film " . $this->title . " ha come regista " . $this->director . ", ed è stato realizzato nel " . $this->year;
+        $gendersString = "";
+        foreach ($this->genders as $gender) {
+            $gendersString = $gendersString . $gender . " / ";
+        }
+
+        return "Il film " . $this->title . " ha come regista " . $this->director . ", ed è stato realizzato nel " . $this->year ."." . " Il suo genere è " . $gendersString . ".";
                
 
     }
 
 }
 
-$newMovie = new Movie("La città incantata","Hayao Miyazaki", 2001);
-$newMovie2 = new Movie("Il castello errante di Howl","Hayao Miyazaki", 2004);
+$newMovie = new Movie("La città incantata","Hayao Miyazaki", 2001, ["Animazione", "Avventura", "Fantastico"]);
+$newMovie2 = new Movie("Il castello errante di Howl","Hayao Miyazaki", 2004,["Animazione","Fantastico","Sentimentale","Avventura"]);
 
 //echo "Titolo del film: " . $newMovie->title;
 
